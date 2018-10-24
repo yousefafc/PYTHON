@@ -59,32 +59,56 @@ player2.add(destroyer("destroyer"))
 player2.add(carrier("carrier"))
 
 
-game_board = []
+grid = [['O' for i in range(10)] for j in range(10)]
 
+def print_grid():
+    print("  " + " ".join(str(i) for i in range(10))) # " ".join() puts the " " between each string in the list
+    for y in range(10):
+        print(str(y) + " " + " ".join(grid[y]))
 
-def build_game_board(board):
-    for item in range(5):
-        board.append(["O"] * 5)
+print_grid()
+#placing ships in grid
+for turn in range(20):
+    patrolr = int(input("pick row to place patrol ship: (0-9) "))
+    patrolc = int(input("pick column to place patrol ship: (0-9) "))
+    battleshipr = int(input("pick row to place battleship: (0-9) "))
+    battleshipc = int(input("pick column to place battleship: (0-9) "))
+    submariner = int(input("pick row to place submarine: (0-9) "))
+    submarinec = int(input("pick column to place submarine: (0-9) "))
+    destroyerr = int(input("pick row to place destroyer: (0-9) "))
+    destroyerc = int(input("pick column to place destroyer: (0-9) "))
+    carrierr = int(input("pick row to place carrier: (0-9) "))
+    carrierc = int(input("pick column to place carrier: (0-9) "))
+    grid[patrolr][patrolc] = "1"
+    grid[patrolr][patrolc + 1] = "1"
+    grid[battleshipr][battleshipc] = "1"
+    grid[battleshipr][battleshipc + 1] = "1"
+    grid[battleshipr][battleshipc + 2] = "1"
+    grid[submariner][submarinec] = "1"
+    grid[submariner][submarinec + 1] = "1"
+    grid[submariner][submarinec + 1] = "1"
+    grid[destroyerr][destroyerc] = "1"
+    grid[destroyerr][destroyerc + 1] = "1"
+    grid[destroyerr][destroyerc + 2] = "1"
+    grid[destroyerr][destroyerc + 3] = "1"
+    grid[carrierr][carrierc] = "1"
+    grid[carrierr][carrierc + 1] = "1"
+    grid[carrierr][carrierc + 2] = "1"
+    grid[carrierr][carrierc + 3] = "1"
+    grid[carrierr][carrierc + 4] = "1"
+    print_grid()
+pass
 
-def show_board(board):
-    for row in board:
-        print(" ".join(row))
+# playing the game
+#for turn in range(4):
+#row = int(input("guess row: (0-9) "))
+#col = int(input("guess column: (0-9) "))
 
-def load_game(board):
-    print("WELCOME TO BATTLESHIP!")
-    print("Find and sink the ships!")
-    del board[:]
-    build_game_board(board)
-    show_board(board)
+#grid[row][col] = "X"
+#print_grid()
 
-ship_points = load_game(game_board)
-#players will alternate turns:
-def player_turns(total_turns):
-    if total_turns % 2 == 0:
-        total_turns += 1
-        return player1
-    return player2
 
 players = [player1, player2]
+
 def row_choice(players):
     return
