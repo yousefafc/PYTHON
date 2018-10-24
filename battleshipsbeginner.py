@@ -108,7 +108,3 @@ grid[row][col] = "X"
 print_grid()
 
 
-players = [player1, player2]
-
-def row_choice(players):
-    return
