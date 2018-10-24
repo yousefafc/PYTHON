@@ -97,15 +97,15 @@ for turn in range(20):
     grid[carrierr][carrierc + 3] = "1"
     grid[carrierr][carrierc + 4] = "1"
     print_grid()
-pass
+#playing the game
 
-# playing the game
-#for turn in range(4):
-#row = int(input("guess row: (0-9) "))
-#col = int(input("guess column: (0-9) "))
+for turn in range(1):
+    row = int(input("guess row: (0-9) "))
+    col = int(input("guess column: (0-9) "))
 
-#grid[row][col] = "X"
-#print_grid()
+
+grid[row][col] = "X"
+print_grid()
 
 
 players = [player1, player2]
