@@ -1,4 +1,14 @@
 from random import randint
+class Player1:
+    ships = []
+    def add(self, ships):
+        pass
+
+class Player2():
+    ships = []
+    def add(self, ships):
+        pass
+
 class ships:
     def __init__(self,row_size):
         self.row_size = row_size
@@ -30,12 +40,27 @@ class carrier(ships):
         ships.__init__(self, 1)
         self.column_size = 5
 
+player1 = Player1()
+player1.add(patrol_boat("patrol"))
+player1.add(patrol_boat("patrol"))
+player1.add(battleships("battleship"))
+player1.add(battleships("battleship"))
+player1.add(submarine("submarine"))
+player1.add(destroyer("destroyer"))
+player1.add(carrier("carrier"))
+
+player2 = Player2()
+player2.add(patrol_boat("patrol"))
+player2.add(patrol_boat("patrol"))
+player2.add(battleships("battleship"))
+player2.add(battleships("battleship"))
+player2.add(submarine("submarine"))
+player2.add(destroyer("destroyer"))
+player2.add(carrier("carrier"))
+
 
 game_board = []
-player1 = {"name": "Player 1",
-            "wins": 0,}
-player2 = {"name": "Player 2",
-            "wins": 0,}
+
 
 def build_game_board(board):
     for item in range(5):
@@ -51,10 +76,15 @@ def load_game(board):
     del board[:]
     build_game_board(board)
     show_board(board)
-    ship_col = randint(1, len(board))
-    ship_row = randint(1, len(board[0]))
-    return {
-        'ship_col': ship_col,
-        'ship_row': ship_row,
-    }
+
 ship_points = load_game(game_board)
+#players will alternate turns:
+def player_turns(total_turns):
+    if total_turns % 2 == 0:
+        total_turns += 1
+        return player1
+    return player2
+
+players = [player1, player2]
+def row_choice(players):
+    return
