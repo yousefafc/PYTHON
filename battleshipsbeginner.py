@@ -1,4 +1,4 @@
-from random import randint
+
 class Player1:
     ships = []
     def add(self, ships):
